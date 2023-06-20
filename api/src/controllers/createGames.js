@@ -1,12 +1,13 @@
-const { Videogame, Genre} = require('../db');
+const { Videogames, Genres} = require('../db');
 
 const gameCreator = async (name,description,released,rating,platform,genres,image) => {
     try {
-        const genresFounded = await Genre.findAll({
+
+        const genresFounded = await Genres.findAll({
             where: { name: genres}
         });
-
-        const newVideogame = await Videogame.create({
+        
+        const newVideogame = await Videogames.create({
             name:name,
             description:description,
             released:released,
@@ -15,11 +16,11 @@ const gameCreator = async (name,description,released,rating,platform,genres,imag
             image:image
         })
 
-        await newVideogame.addGenre(genresFounded)
+        await newVideogame.addGenres(genresFounded)
         return newVideogame
+       
     } catch (error) {
         console.log(error.message);
-
     }
 }
 

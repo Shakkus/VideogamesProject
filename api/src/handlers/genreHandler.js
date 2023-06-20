@@ -6,7 +6,7 @@ const getGenHandler = async (req,res) => {
     try {
         res.status(200).json(gender)
     } catch (error) {
-        res.status(400).send('Algo salio mal')
+        res.status(404).send('Algo salio mal')
     }
 }
 

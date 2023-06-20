@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useParams} from 'react-router-dom';
+import Nav from '../LayoutComponents/Nav/Nav'
 
 const Detail = () => {
     const {id} = useParams();
@@ -17,14 +18,19 @@ const Detail = () => {
 
     return (
         <div key={game.id} className='generalInfo'>
+            <Nav />
+
+            <h2 className='gameName'> {game.name} </h2>
+
             <div className='gameImg'>
                 <img  src={game.image} alt="" />
             </div>
+
             <div className='platforms'>
                 <h3 className='detailPlatform'>Plataformas:</h3>
                 <ul className='gamePlatforms'>
                     {game.platform?.map((platform,index) => 
-                        <li key={index}>{platform}</li>
+                        <li key={index}> {platform} </li>
                     )}
                 </ul>
             </div>

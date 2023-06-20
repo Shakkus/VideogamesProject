@@ -4,7 +4,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 const Filters = () => {
-    const genreList = useSelector(state => state.genres)
+    const genreList = useSelector(state => state.genre)
     const dispatch = useDispatch();
 
     const handleGenreFilter = (event) => dispatch(filterGenre(event.target.value));
@@ -17,15 +17,16 @@ const Filters = () => {
     },[dispatch]);
 
     return (
-        <>
             <div className="filters">
+                <h2>Aca van los filtros</h2>
+                
                 <select className="filter" onChange={handleOrderByAlphabet}>
                         <option value="" disabled selected>Alfabetico</option>
                         <option value="none">Normal</option>
                         <option value="ascA"> A-Z</option>
                         <option value="descA">Z-A</option>
                 </select>
-
+                
                 <select className="filter" onChange={handleOrderByRating}>
                         <option value="" disabled selected>Rating</option>
                         <option value="none">Normal</option>
@@ -33,22 +34,23 @@ const Filters = () => {
                         <option value="descR">Menor Rating</option>
                 </select>
 
-                <select className="filter" onChange={handleGenreFilter}>
-                        <option value="" disabled selected>Genero</option>
-                        <option value="allGenres">Todos los generos</option>
-                        { genreList.map(genre => (
-                            <option key={genre} value={genre}>{genre}</option>
-                        ))}
+                <select className="select-filter" onChange={handleGenreFilter}>
+                    <option value="" disabled selected>Generos</option>
+                    <option value="allGenres">Todos los géneros</option>
+                    {genreList.map(genre => (
+                        <option key={genre} value={genre}>{genre}</option>
+                    ))}
                 </select>
-
+                    
                 <select className="filter" onChange={handleOriginFilter}>
                         <option value="" disabled selected>Origen</option>
-                        <option value="allOrigin">Todos los origenes</option>
-                        <option value="API"></option>
-                        <option value="Database">Base de datos</option>
-                </select>
+                        <option value="allOrigin">Cualquier Orig</option>
+                        <option value="API">Traidos de api</option>
+                        <option value="Database">Traidos de Base de datos</option>
+                </select> 
+                
+
             </div>
-        </>
     )
 }
 

@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { getAllGenres,getAllGames,PostVideogame } from "../../redux/actions";
+import { getAllGenres,getAllGames,PostVideogames } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 import validate from './validation';
 import Nav from '../LayoutComponents/Nav/Nav';
@@ -8,7 +8,7 @@ import Nav from '../LayoutComponents/Nav/Nav';
 const AddVideogame = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const genreList = useSelector(state => state.genres);
+    const genreList = useSelector(state => state.genre);
     const platformsApi = ["PC", "PlayStation 5", "PlayStation 4", "PlayStation 3", "Xbox One", "Xbox Series S/X", "Xbox 360", "Xbox", "Nintendo Switch", "Nintendo 3DS", "Nintendo DS", "Nintendo DSi", "iOS", "Android", "macOS", "Linux"]
 
     const [form, setForm] = useState({
@@ -27,7 +27,7 @@ const AddVideogame = () => {
         released: "",
         rating: "",
         genres: [],
-        platforms: [],
+        platforms: [], 
         image:""
     })
 
@@ -50,12 +50,12 @@ const AddVideogame = () => {
 
     const handleSelectPlatforms = (event) => {
         const value = event.target.value;
-        setForm({ ...form, platform: [...form.platform, value] })
+        setForm({ ...form, platforms: [...form.platforms, value] })
     }
 
     const submitHandler = (event) => {
-        event.preventDefault()
-        dispatch(PostVideogame(form))
+        event.preventDefault();
+        dispatch(PostVideogames(form))
         setForm({
             name: "",
             description: "",
@@ -76,47 +76,47 @@ const AddVideogame = () => {
 
             <form onSubmit={submitHandler}>
                 <div>
-                    <label htmlFor="">Nombre :</label>
+                    <label>Nombre :</label>
                     <input type="text" value={form.name} onChange={changeHandler} name='name'/>
-                    {errors.name && <span>{errors.name}</span>}
+                    {errors.name && <span className="error">{errors.name}</span>}
                 </div>
 
                 <div>
-                    <label htmlFor="">Descripcion :</label>
-                    <input type="text" value={form.description} onChange={changeHandler} name='name'/>
-                    {errors.description && <span>{errors.description}</span>}
+                    <label>Descripcion :</label>
+                    <input type="text" value={form.description} onChange={changeHandler} name="description" />
+                    {errors.description && <span className="error">{errors.description}</span>}
                 </div>
 
                 <div>
-                    <label htmlFor="">Fecha de lanzamiento :</label>
-                    <input type="text" value={form.released} onChange={changeHandler} name='name'/>
-                    {errors.released && <span>{errors.released}</span>}
+                    <label>Fecha de lanzamiento :</label>
+                    <input type="date" value={form.released} onChange={changeHandler} name="released"/>
+                    {errors.released && <span className="error">{errors.released}</span>}
                 </div>
 
                 <div>
-                    <label htmlFor="">Imagen :</label>
-                    <input type="text" value={form.name} onChange={changeHandler} name='name'/>
-                    {errors.image && <span>{errors.image}</span>}
+                    <label>Imagen :</label>
+                    <input type="text" value={form.image} onChange={changeHandler} name="image"/>
+                    {errors.image && <span className="error">{errors.image}</span>}
                 </div>
 
                 <div>
-                    <label htmlFor="">Generos:</label>
-                    <select name="" onChange={(event) => handleSelectGenre(event)} id="">
-                        <option disabled selected defaultValue>Seleccionar</option>
-                        {genreList?.map((genre)=>(<option value={genre}>{genre}</option>))}
+                    <label >Generos:</label>
+                    <select onChange={(event) => handleSelectGenre(event)}>
+                        <option disabled selected defaultValue > Seleccionar </option>
+                        {genreList?.map((genre)=>(<option value={genre}> {genre} </option>))}
                     </select>
+                    {errors.genres && <span className="error"> {errors.genres} </span>}
+                    <ul><li>{form.genres.map(element => element + ' ,')}</li></ul>
                 </div>
 
                 <div>
-                    <label htmlFor="">Plataformas :</label>
-                    <select name="" onChange={(event) => handleSelectPlatforms(event)} id="">
+                    <label>Plataformas :</label>
+                    <select onChange={(event) => handleSelectPlatforms(event)}>
                         <option disabled selected defaultValue>Seleccionar</option>
-                        {platformsApi?.map((element)=> (<option value={element}>{element}</option>))}
+                        {platformsApi?.map((element)=> (<option value={element}>{element}</option> ))}
                     </select>
-                    {errors.genres && <span>{errors.genres}</span>}
-                    <ul>
-                        <li>{form.genres.map(element => element = ' ,')}</li>
-                    </ul>
+                    {errors.platforms && <span className="error">{errors.platforms}</span>}
+                    <ul><li>{form.platforms.map(element => element = ' ,')}</li></ul>
                 </div>
 
                 <div>
@@ -132,11 +132,12 @@ const AddVideogame = () => {
                     form.released === '' || errors.released ||
                     form.image === '' || errors.image ||
                     form.genres === '' || errors.genres ||
-                    form.platforms === '' || errors.platforms
-                }>Crear Videojuego</button>
+                    form.platforms === '' || errors.platforms }>Crear Videojuego</button>
             </form>
         </div>
     )
 }
 
 export default AddVideogame;
+
+{/* */}

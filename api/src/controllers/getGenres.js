@@ -1,4 +1,4 @@
-const {Genre} = require('../db');
+const {Genres} = require('../db');
 
 const axios = require('axios');
 
@@ -10,7 +10,7 @@ const getGenres = async()=>{
     const allGenders = [];
 
     for (const gen of result) {
-        await Genre.findOrCreate({where:{name: gen.name}})
+        await Genres.findOrCreate({where:{name: gen.name}})
         allGenders.push(gen.name)
     }
     return allGenders;

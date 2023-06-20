@@ -9,14 +9,17 @@ export const filterOrigin = (origin) => {
 }
 
 export const orderByAlphabet = (order) => {
-    return {type:'ALPHABETICAL_ORDER', payload: order}
+    return {type:'ORDER_ALPHABETICAL', payload: order}
 }
+
 export const orderByRating = (order) => {
     return {type:'RATING_ORDER', payload: order}
 }
+
 export const setVideogames = (videogames) => {
     return {type:'SET_VIDEOGAMES', payload: videogames}
 }
+
 export const setGenres = (genre) => {
     return {type:'SET_GENRES', payload: genre}
 }
@@ -35,7 +38,7 @@ export const getAllGames = () => {
 export const getAllGenres = () => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get(`http://localhost:3001/genres/`);
+            const {data} = await axios.get(`http://localhost:3001/genre`);
             dispatch(setGenres(data))
         } catch (error) {
             console.log(error);
@@ -43,13 +46,12 @@ export const getAllGenres = () => {
     }
 }
 
-export function PostVideogame(payload){
+export function PostVideogames(payload){
     return async function(dispatch){
         try {
-            const data = await axios.get(`http://localhost:3001/videogames/`,payload);
+            const data = await axios.post(`http://localhost:3001/videogames/`,payload);
             return data;
         } catch (error) {
-            console.log(error);
             alert('server caido')
         }
     }

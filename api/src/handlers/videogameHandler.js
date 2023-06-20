@@ -20,7 +20,7 @@ const getGameById = async (req,res) =>{
         const game = await getAllById(idVideogame);
         return res.status(200).json(game);
     } catch (error) {
-        res.status(400).send(error.message)
+        res.status(404).send(error.message)
     }
 }
 
@@ -43,7 +43,7 @@ const createGame = async (req,res) => {
 
         res.status(200).json(createdGame);
     } catch (error) {
-        res.status(400).send({error:error.message});
+        res.status(500).send({error:error.message});
     }
 }
 

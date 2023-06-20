@@ -36,11 +36,9 @@ const Home = () => {
 
     return (
         <div className="homeSection">
-            <Nav />
             <h2>Esto es la seccion home</h2>
-
+            <Nav />
             <SearchNav searchValue={searchValue} handleSearch={handleSearch}/>
-            
             <Filters />
             <h2>Juegos</h2>
             <Cards currentGames={currentGames}/>

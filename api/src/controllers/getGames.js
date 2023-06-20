@@ -1,4 +1,4 @@
-const {Videogame,Genre} = require('../db');
+const {Videogames,Genres} = require('../db');
 const getGameInfo = require('./toolsController');
 
 const URL = 'https://api.rawg.io/api/games?key=576a8a6f2f9a4060a1ca382252427343'
@@ -17,7 +17,7 @@ const getApiGames = async (url)=>{
 
 const getDbGames = async (db) => await db.findAll({
     include: {
-        model: Genre,
+        model: Genres,
         attributes: ['name'],
         through:{
             attributes:[]
@@ -26,9 +26,9 @@ const getDbGames = async (db) => await db.findAll({
 })
 
 const getAll = async () => {
-    const db = await getDbGames(Videogame);
+    const db = await getDbGames(Videogames);
     const api = await getApiGames(URL);
     return [...db,...api]
 }
 
-module.exports = getAll
+module.exports = getAll;

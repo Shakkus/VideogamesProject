@@ -11,8 +11,8 @@ const validate = (form) => {
 
     if (!form.released) errors.released = 'Se requiere Fecha de Lanzamiento!';
     if(!form.image) errors.image = 'Necesitas cargar una imagen'
-    if(form.genres.length < 1) errors.genre = 'Se requiere poner al menos 1 genero!'
-    if(form.platform.length < 1) errors.platform = 'Se require al menos 1 plataforma!'
+    if(form.genres.length < 1) errors.genres = 'Se requiere poner al menos 1 genero!'
+    if(form.platforms.length < 1) errors.platforms = 'Se require al menos 1 plataforma!'
 
     return errors;
 }
