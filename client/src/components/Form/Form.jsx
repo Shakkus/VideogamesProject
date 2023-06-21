@@ -30,7 +30,7 @@ const AddVideogame = () => {
         released: "",
         rating: "",
         genres: [],
-        platforms: [], 
+        platform: [], 
         image:""
     })
 
@@ -46,15 +46,15 @@ const AddVideogame = () => {
         setErrors(validate({...form,[property]:value}))
     }
 
-    const handleSelectGenre = (event ) => {
+    const handleSelectGenre = (event) => {
         const value = event.target.value;
-        setForm({...form, genres:[...form.genres, value]})
-    }
-
-    const handleSelectPlatforms = (event) => {
+        setForm({ ...form, genres: [...form.genres, value] });
+      };
+      
+      const handleSelectPlatforms = (event) => {
         const value = event.target.value;
-        setForm({ ...form, platforms: [...form.platforms, value] })
-    }
+        setForm({ ...form, platforms: [...form.platforms, value] });
+      };
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -118,7 +118,7 @@ const AddVideogame = () => {
                         <option disabled selected defaultValue>Seleccionar</option>
                         {platformsApi?.map((plataform)=> (<option value={plataform}>{plataform}</option> ))}
                     </select>
-                    {errors.platforms && <span className="error">{errors.platforms}</span>}
+                    {errors.platform && <span className="error">{errors.platform}</span>}
                     <ul><li>{form.platforms.map(element => element + ' ,')}</li></ul>
                 </div>
 
@@ -128,14 +128,14 @@ const AddVideogame = () => {
                     {errors.rating && <span className="error">{errors.rating}</span>}
                 </div>
 
-                <button type="submit" disabled = {
+                <button className='submitBtn' type="submit" disabled = {
                     form.name===''||errors.name||
                     form.description === '' || errors.description ||
                     form.rating === '' || errors.rating ||
                     form.released === '' || errors.released ||
                     form.image === '' || errors.image ||
                     form.genres === '' || errors.genres ||
-                    form.platforms === '' || errors.platforms }>Crear Videojuego</button>
+                    form.platforms === '' || errors.platform }>Crear Videojuego</button>
             </form>
         </div>
     )

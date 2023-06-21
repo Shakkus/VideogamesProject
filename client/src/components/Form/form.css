@@ -23,3 +23,7 @@ form{
 .submitSpace ul{
     list-style-type: none;
 }
+
+.submitBtn{
+    padding: 10px;
+}

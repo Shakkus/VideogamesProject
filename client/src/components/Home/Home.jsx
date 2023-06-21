@@ -19,6 +19,7 @@ const Home = () => {
 
     //SearchBar
     const [searchValue,SetSearchValue] = useState('');
+    
     const handleSearch = (event) => {
         SetSearchValue(event.target.value)
         setCurrentPage(1);

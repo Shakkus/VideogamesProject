@@ -27,6 +27,8 @@ const Detail = () => {
                     <img  src={game.image} alt="" width='1000px'/>
 
                     <div className="boxToBlock">
+                        <h1 className='detailId'>ID: {game.id}</h1>
+                        <p className='gameDescription'> {game.name} te permite descubrir estrategias, explorar el genero {game.genres?.[0]} y divertirte con amigos de todo el mundo. Empieza a jugar gratis, desafía a tus amigos, consigue logros y experimenta la magia del juego. </p>
 
                         <div className='platforms'>
                             
@@ -39,10 +41,7 @@ const Detail = () => {
                         </div>
 
                         <div className='gameDetails'>
-                            <h1 className='detail-id'>ID: {game.id}</h1>
-                            <p></p>
                             <p>Fecha de lanzamiento: {game.released}</p>
-
                         </div>
 
                         <div className='gameGenres'>

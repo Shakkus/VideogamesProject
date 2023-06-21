@@ -1,9 +1,23 @@
+html{
+    background-image:url('https://www.xtrafondos.com/wallpapers/resized/mario-emocionado-super-mario-bros-11662.jpg?s=large');
+    width: 100%;
+    
+    object-fit:cover;
+    
+}
+.component-box{
+   background: transparent; 
+}
+
+.component-box h2{
+    background: none;
+}
 .component-box .btn{
     padding: 20px;
-    background: rgb(71, 70, 70);
     border-radius: 10px;
     margin: 50px;
     transition: 0.5s;
+    background: rgb(44, 44, 44);
 }
 .btn-link{
     text-decoration: none;
