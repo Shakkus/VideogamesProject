@@ -68,6 +68,7 @@ const AddVideogame = () => {
             platform: [],
             image:"",
         })
+        alert('Formulario creado correctamente')
         navigate('/home')
     }
 
