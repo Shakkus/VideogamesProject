@@ -2,6 +2,8 @@ import { useState,useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { getAllGames } from '../../redux/actions';
 
+import './home.css'
+
 import SearchNav from '../Home/SearchNav/SearchNav';
 import Cards from './Cards/Cards';
 import Pagination from './Pagination/Pagination';
@@ -36,7 +38,6 @@ const Home = () => {
 
     return (
         <div className="homeSection">
-            <h2>Esto es la seccion home</h2>
             <Nav />
             <SearchNav searchValue={searchValue} handleSearch={handleSearch}/>
             <Filters />

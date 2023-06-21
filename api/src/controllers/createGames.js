@@ -1,27 +1,28 @@
-const { Videogames, Genres} = require('../db');
+const { Videogames, Genres } = require('../db');
 
-const gameCreator = async (name,description,released,rating,platform,genres,image) => {
+const createGame = async (name, description, released, rating, platform, genres, image) => {
     try {
 
-        const genresFounded = await Genres.findAll({
-            where: { name: genres}
+        const generosEncontrados = await Genres.findAll({
+            where: { name: genres }
         });
-        
-        const newVideogame = await Videogames.create({
-            name:name,
-            description:description,
-            released:released,
-            rating:rating,
-            platform:platform,
-            image:image
-        })
 
-        await newVideogame.addGenres(genresFounded)
+        const newVideogame = await Videogames.create({
+            name: name,
+            description: description,
+            released: released,
+            rating: rating,
+            platform: platform,
+            image: image
+        });
+
+        await newVideogame.addGenres(generosEncontrados);
         return newVideogame
-       
+
     } catch (error) {
-        console.log(error.message);
+        console.log(error.message)
+        console.log(name, description, released, rating, platform, genres, image)
     }
 }
 
-module.exports = gameCreator
+module.exports = createGame;

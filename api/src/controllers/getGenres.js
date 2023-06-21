@@ -7,13 +7,13 @@ const api_url = 'https://api.rawg.io/api/genres?key=576a8a6f2f9a4060a1ca38225242
 const getGenres = async()=>{
     const {data} = await axios(api_url);
     const result = data.results;
-    const allGenders = [];
-
+    const allGenres = [];
+    
     for (const gen of result) {
         await Genres.findOrCreate({where:{name: gen.name}})
-        allGenders.push(gen.name)
+        allGenres.push(gen.name)
     }
-    return allGenders;
+    return allGenres;
 }
 
 module.exports = getGenres

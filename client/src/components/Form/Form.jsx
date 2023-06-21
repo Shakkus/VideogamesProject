@@ -5,11 +5,14 @@ import { useNavigate } from "react-router-dom";
 import validate from './validation';
 import Nav from '../LayoutComponents/Nav/Nav';
 
+import './form.css'
+
 const AddVideogame = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const genreList = useSelector(state => state.genre);
     const platformsApi = ["PC", "PlayStation 5", "PlayStation 4", "PlayStation 3", "Xbox One", "Xbox Series S/X", "Xbox 360", "Xbox", "Nintendo Switch", "Nintendo 3DS", "Nintendo DS", "Nintendo DSi", "iOS", "Android", "macOS", "Linux"]
+
 
     const [form, setForm] = useState({
         name:'',
@@ -72,34 +75,34 @@ const AddVideogame = () => {
         <div className="form">
             <Nav />
 
-            <h2>Crea tu videojuego</h2>
+            <h2 className="title" >Crea tu videojuego</h2>
 
             <form onSubmit={submitHandler}>
-                <div>
+                <div className='submitSpace'>
                     <label>Nombre :</label>
                     <input type="text" value={form.name} onChange={changeHandler} name='name'/>
                     {errors.name && <span className="error">{errors.name}</span>}
                 </div>
 
-                <div>
+                <div className='submitSpace'>
                     <label>Descripcion :</label>
                     <input type="text" value={form.description} onChange={changeHandler} name="description" />
                     {errors.description && <span className="error">{errors.description}</span>}
                 </div>
 
-                <div>
+                <div className='submitSpace'>
                     <label>Fecha de lanzamiento :</label>
                     <input type="date" value={form.released} onChange={changeHandler} name="released"/>
                     {errors.released && <span className="error">{errors.released}</span>}
                 </div>
 
-                <div>
+                <div className='submitSpace'>
                     <label>Imagen :</label>
                     <input type="text" value={form.image} onChange={changeHandler} name="image"/>
                     {errors.image && <span className="error">{errors.image}</span>}
                 </div>
 
-                <div>
+                <div className='submitSpace'>
                     <label >Generos:</label>
                     <select onChange={(event) => handleSelectGenre(event)}>
                         <option disabled selected defaultValue > Seleccionar </option>
@@ -109,17 +112,17 @@ const AddVideogame = () => {
                     <ul><li>{form.genres.map(element => element + ' ,')}</li></ul>
                 </div>
 
-                <div>
+                <div className='submitSpace'>
                     <label>Plataformas :</label>
                     <select onChange={(event) => handleSelectPlatforms(event)}>
                         <option disabled selected defaultValue>Seleccionar</option>
-                        {platformsApi?.map((element)=> (<option value={element}>{element}</option> ))}
+                        {platformsApi?.map((plataform)=> (<option value={plataform}>{plataform}</option> ))}
                     </select>
                     {errors.platforms && <span className="error">{errors.platforms}</span>}
-                    <ul><li>{form.platforms.map(element => element = ' ,')}</li></ul>
+                    <ul><li>{form.platforms.map(element => element + ' ,')}</li></ul>
                 </div>
 
-                <div>
+                <div className='submitSpace'>
                     <label htmlFor="">Rating: </label>
                     <input type="number" min='0' max='5' value={form.rating} onChange={changeHandler} name="rating" ></input>
                     {errors.rating && <span className="error">{errors.rating}</span>}
@@ -139,5 +142,3 @@ const AddVideogame = () => {
 }
 
 export default AddVideogame;
-
-{/* */}

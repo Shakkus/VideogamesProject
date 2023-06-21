@@ -1,0 +1,43 @@
+.generalInfo{
+    color: white;
+    margin: 20px;
+    
+}
+
+.generalInfo .gameName{
+    text-align: start;
+    background: rgb(128, 128, 128);
+    padding: 20px;
+}
+
+/* General Information */
+
+.gameInfo{
+    display: flex;
+    text-align: center;
+}
+
+/* boxToBlock*/
+
+.boxToBlock{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* Platforms */
+.gameInfo .platforms{
+    width: 100%;
+    background: rgb(97, 96, 96);
+    padding: 20px;
+}
+
+.gamePlatforms,
+.gameGenres .detailGenreList
+{
+    list-style-type:none;
+}
+
+.gameDetails,
+.gameGenres{
+    background: rgb(97, 96, 96);
+}

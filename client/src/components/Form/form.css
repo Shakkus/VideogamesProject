@@ -1,0 +1,25 @@
+h2{
+    color: white;
+}
+form{
+    margin: 20px;
+    background: rgb(71, 70, 70);
+    padding: 20px;
+}
+
+.form .submitSpace{
+    color: white;
+    margin: 20px;
+}
+
+.submitSpace input{
+    padding: 10px;
+}
+
+.submitSpace select{
+    color: black;
+}
+
+.submitSpace ul{
+    list-style-type: none;
+}

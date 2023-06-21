@@ -1,3 +1,5 @@
+import './pagination.css';
+
 const Pagination = ({goToNextPage, goToPreviousPage, totalPages,currentPage}) => {
     return (
         <div className="pagination">

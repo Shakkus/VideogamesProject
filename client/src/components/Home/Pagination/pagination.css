@@ -1,0 +1,17 @@
+.pagination{
+    
+    background: rgb(59, 59, 59);
+    padding: 20px;
+}
+
+.pagination .previousBtn{
+    padding: 10px;
+}
+.pagination .currentBtn{
+    padding: 10px;
+    margin: 50px;
+    color: white;
+}
+.pagination .nextBtn{
+    padding: 10px;
+}

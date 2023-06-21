@@ -1,0 +1,36 @@
+.linksNav {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(71, 70, 70);
+}
+  
+.linksNav h4,
+.linksNav .title-container {
+    margin: 0;
+    padding: 0;
+}
+  
+.linksNav .link {
+    color: white;
+    text-decoration: none;
+}
+  
+.linksNav .link:last-child {
+    margin-right: 0;
+}
+  
+.linksNav .title-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.linksNav .title-container h2 {
+    color: white;
+}
+  
+  
+  

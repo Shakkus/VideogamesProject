@@ -1,0 +1,48 @@
+/* CARDS*/
+
+.games-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* CARD */
+
+.card-container{
+    background-color: rgb(122, 118, 118);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardImg{
+    width: 100%;
+}
+
+.games-container .infoCard{
+    background-color: rgb(88, 87, 87);
+    flex-grow: 1;
+}
+
+.nameCard{
+    width: 300px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-container .cardImg{
+    width: 300px;
+}
+
+.nameCard .cardNameLink{
+    color: white;
+    text-decoration: none;
+}
+
+.genreCard{
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+

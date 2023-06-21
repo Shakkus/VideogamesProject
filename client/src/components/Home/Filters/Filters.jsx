@@ -3,6 +3,8 @@ import { filterGenre,filterOrigin,orderByAlphabet,orderByRating,getAllGenres } f
 import { useSelector,useDispatch } from "react-redux";
 import { useEffect } from "react";
 
+import './filters.css'
+
 const Filters = () => {
     const genreList = useSelector(state => state.genre)
     const dispatch = useDispatch();
@@ -18,8 +20,6 @@ const Filters = () => {
 
     return (
             <div className="filters">
-                <h2>Aca van los filtros</h2>
-                
                 <select className="filter" onChange={handleOrderByAlphabet}>
                         <option value="" disabled selected>Alfabetico</option>
                         <option value="none">Normal</option>

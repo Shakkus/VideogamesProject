@@ -15,8 +15,6 @@ const reducer = (state = initialState, action) => {
         
         case 'POST_VIDEOGAMES':
             return{...state}
-         
-        
 
         case 'FILTER_GENRE':
             const genderFilter = state.allVideogames.filter(game => game.genres.some(genre => genre === action.payload));

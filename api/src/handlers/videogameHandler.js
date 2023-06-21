@@ -36,14 +36,13 @@ const getGameByName = async(req,res)=>{
 }
 
 const createGame = async (req,res) => {
-    try {
-        const {name,description,released,rating,platform,genres,image} = req.body;
-        
-        const createdGame = await gameCreator(name,description,released,rating,platform,genres,image)  
 
-        res.status(200).json(createdGame);
+    try {
+        const { name, description, released, rating, platform, genres, image } = req.body;
+        const createdGame = await gameCreator(name, description, released, rating, platform, genres, image)
+        res.status(200).json(createdGame)
     } catch (error) {
-        res.status(500).send({error:error.message});
+        res.status(500).send({error: error.message}); 
     }
 }
 
